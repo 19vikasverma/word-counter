@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word counter</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <h1>word and charater counter</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+   <p>
+     <span id="word">0</span> words and
+     <span id="char">0</span> character
+    </p>
+
+
+<script>
+    let textbox =document.getElementById("textbox");
+textbox.addEventListener('input',function(){
+    var text= this.value;
+    let char = text.length;
+    document.getElementById("char").innerHTML = char; //char me innerhtml ki lenght store h 
+    //[ textbox se id utakar textbox me dala fir textbox pr eventlistner ke input pr functionapply kra us ki value li or text vaiable m rkhi or uski length char m e rkh di char id liuske innerhtml ko char m rkha diya]
+    text = text.trim();  
+    
+    let words = text.split(" ");
+    let cleanlist = words.filter(function(elm){
+        return elm != "";
+    })
+    document.getElementById("word").innerHTML = cleanlist.length;
+    
+    // extra pace ko hatane k liye trim function lgya word count krne k liye split function lagaya text pr or use word m rkh diya word ki id me jo inner html h liya or use word ki lenghth tak kra diya
+      
+});
+
+ 
+
+</script>
+</body>
+</html>
